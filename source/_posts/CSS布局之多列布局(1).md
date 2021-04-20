@@ -65,7 +65,7 @@ Multicol 与我们在 CSS 中拥有的其他布局方法不同，它将内容（
 }
 ```
 
-![column-count](CSS布局之多列布局/column-count.png)
+![column-count](column-count.png)
 
 ### column-width 属性
 
@@ -103,7 +103,7 @@ Multicol 与我们在 CSS 中拥有的其他布局方法不同，它将内容（
 }
 ```
 
-![column-width](CSS布局之多列布局/column-width.png)
+![column-width](column-width.png)
 
 ### 同时使用 column-count 和 column-width
 
@@ -140,7 +140,7 @@ Multicol 与我们在 CSS 中拥有的其他布局方法不同，它将内容（
 }
 ```
 
-![column-count_and_column-width](CSS布局之多列布局/column-count_and_column-width.png)
+![column-count_and_column-width](column-count_and_column-width.png)
 
 ### columns 缩写
 
