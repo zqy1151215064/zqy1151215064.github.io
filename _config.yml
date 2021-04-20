@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 小哈喽的博客
 subtitle: ''
-description: ''
+description: '记录学习'
 keywords:
-author: John Doe
+author: Leo
 language:
 - zh-CN
 - _en
