@@ -1,5 +1,8 @@
 ---
 title: 使用Hexo搭建个人博客
+date: 2021-04-20 10:54:39
+tags:
+type: hexo
 ---
 前提：在不想自己买云服务器搭建个人博客的情况下，可以使用Hexo配合GitHub Pages搭建个人博客。
 

@@ -1,10 +1,11 @@
 ---
-title: CSS布局之多列布局（1）
+title: CSS布局之多列布局-Multicol基本概念（1）
 date: 2021-04-20 10:54:39
 tags:
+type: css
 ---
 
-# Multicol 的基本概念
+# Multicol的基本概念
 
 多列布局，通常简称为 multicol，是一种用于将内容布局到一组列框（类似于报纸中的列）的规范。
 

@@ -110,3 +110,7 @@ deploy:
   type: git
   repo: git@github.com:zqy1151215064/zqy1151215064.github.io.git
   branch: gh-pages
+
+favicon:
+small: /images/favicon-16x16.png
+medium: /images/favicon-32x32.png
