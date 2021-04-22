@@ -73,10 +73,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-JavaScript之DOM" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/04/20/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-04-20T07:37:24.552Z" itemprop="datePublished">2021-04-20</time>
+    <a href="/2021/04/22/JavaScript%E4%B9%8BDOM/" class="article-date">
+  <time class="dt-published" datetime="2021-04-22T02:30:39.000Z" itemprop="datePublished">2021-04-22</time>
 </a>
     
   </div>
@@ -87,7 +87,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/20/hello-world/">Hello World</a>
+      <a class="p-name article-title" href="/2021/04/22/JavaScript%E4%B9%8BDOM/">JavaScript之DOM</a>
     </h1>
   
 
@@ -95,24 +95,177 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h1 id="Document对象"><a href="#Document对象" class="headerlink" title="Document对象"></a>Document对象</h1><p><code>Document</code>接口表示任何在浏览器中载入的网页，并作为网页内容的入口，也就是<a href="www.developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Using_the_W3C_DOM_Level_1_Core">DOM 树</a>。DOM树包含了像 <code>&lt;body&gt;</code>、 <code>&lt;table&gt;</code>这样的元素，以及大量其他元素。它向网页文档本身提供了全局操作功能，能解决如何获取页面的URL，如何在文档中创建一个新的元素这样的问题。</p>
+<h2 id="使用Document元数据"><a href="#使用Document元数据" class="headerlink" title="使用Document元数据"></a>使用Document元数据</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>characterSet</td>
+<td>只读属性，返回当前文档的字符编码，该字符编码是用于渲染此文档的字符集，可能与该页面指定的编码不同</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>charset</td>
+<td>Document.characterSet的别名。请改用此属性</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>compatMode</td>
+<td>表明当前文档的渲染模式是怪异模式/混杂模式还是标准模式</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>cookie</td>
+<td>获取并设置与当前文档相关联的cookie。可以把它当成一个 <code>getter and setter</code></td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>defaultView</td>
+<td>返回当前 <code>document</code>对象所关联的 <code>window</code>对象，如果没有，会返回 <code>null</code></td>
+<td>Window对象</td>
+</tr>
+<tr>
+<td>dir</td>
+<td>获取或设置文档的文字方向（rtl或ltr）</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>获取或设置当前文档的域名</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>implementation</td>
+<td>返回当前文档中所包含的图片的列表</td>
+<td>DOMImplementation对象</td>
+</tr>
+<tr>
+<td>lastModified</td>
+<td>返回文档最后修改的时间</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>location</td>
+<td>返回当前文档的URI</td>
+<td>Location对象</td>
+</tr>
+<tr>
+<td>readyState</td>
+<td>返回当前文档的加载状态。当该属性值发生变化时，会在 document 对象上触发 readystatechange 事件</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>referrer</td>
+<td>返回来源页面的URI</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>title</td>
+<td>获取或设置当前的文档的标题</td>
+<td>字符串</td>
+</tr>
+</tbody></table>
+<h1 id="Location对象"><a href="#Location对象" class="headerlink" title="Location对象"></a>Location对象</h1><p><code>Location</code>接口表示其链接到的对象的位置（URL）。所做的修改反映在与之相关的对象上。Document和Window接口都有这样一个链接的Location，分别通过 <code>Document.location</code>和 <code>Window.location</code>访问。</p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p><code>Location</code>接口不继承任何属性，但是实现了那些来自 URLUtils 的属性。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>href</td>
+<td>包含整个URL的一个DOMString</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>包含URL对应协议的一个DOMString，最后有一个”:”</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>host</td>
+<td>包含了域名的一个DOMString，可能在该串最后带有一个”:”并跟上URL的端口号</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>hostname</td>
+<td>包含了URL域名的一个DOMString</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>port</td>
+<td>包含端口号的一个DOMString</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>pathname</td>
+<td>包含URL中路径部分的一个DOMString，开头有一个 <code>/</code></td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>search</td>
+<td>包含URL参数的一个DOMString，开头有一个 <code>?</code></td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>hash</td>
+<td>包含块标识符的DOMString，开头有一个 <code>#</code></td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>username</td>
+<td>包含URL中域名前的用户名的一个DOMString</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>password</td>
+<td>包含URL域名前的密码的一个DOMString</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>origin</td>
+<td>包含页面来源的域名的标准形式DOMString，只读属性</td>
+<td>字符串</td>
+</tr>
+</tbody></table>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p><code>Location</code>没有继承任何方法，但实现了来自 URLUtils的方法。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>assign()</td>
+<td>加载给定URL的内容资源到这个Location对象所关联的对象上</td>
+</tr>
+<tr>
+<td>reload()</td>
+<td>重新加载来自当前URL的资源。他有一个特殊的可选参数，类型为Boolean，该参数为true时会导致该方法引发的刷新一定会从服务器上加载数据。如果是 <code>false</code>或没有制定这个参数，浏览器可能从缓存当中加载页面</td>
+</tr>
+<tr>
+<td>replace()</td>
+<td>用给定的URL替换掉当前的资源。与 <code>assign()</code>方法不同的是用 <code>replace()</code>替换的新页面不会被保存在会话的历史History中，这意味着用户将不能用后退按钮转到该页面</td>
+</tr>
+<tr>
+<td>toString()</td>
+<td>返回一个DOMString，包含整个URL。它和读取URLUtils.href的效果相同。但是用它是不能够修改Location的值得</td>
+</tr>
+</tbody></table>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/20/hello-world/" data-id="cknps1pcp0002ovna4eic9yi6" data-title="Hello World" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2021/04/22/JavaScript%E4%B9%8BDOM/" data-id="cknsf98xq0001eenaayg6175b" data-title="JavaScript之DOM" class="article-share-link">分享</a>
       
       
       
@@ -302,7 +455,7 @@
       <ul>
         
           <li>
-            <a href="/2021/04/20/hello-world/">Hello World</a>
+            <a href="/2021/04/22/JavaScript%E4%B9%8BDOM/">JavaScript之DOM</a>
           </li>
         
           <li>
