@@ -112,68 +112,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/20/hello-world/" data-id="cknpriyhi00022gna20bjbt6q" data-title="Hello World" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-create-blog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/20/create-blog/" class="article-date">
-  <time class="dt-published" datetime="2021-04-20T07:37:24.547Z" itemprop="datePublished">2021-04-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/20/create-blog/">使用Hexo搭建个人博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>前提：在不想自己买云服务器搭建个人博客的情况下，可以使用Hexo配合GitHub Pages搭建个人博客。</p>
-<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a> 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<h3 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a>((Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本))</li>
-<li><a target="_blank" rel="noopener" href="https://git-scm.com/">git</a></li>
-</ul>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>全局安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>局部安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo</span><br></pre></td></tr></table></figure>
-
-<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="创建Hexo项目"><a href="#创建Hexo项目" class="headerlink" title="创建Hexo项目"></a>创建Hexo项目</h3><p>在空文件夹中执行下列命令，folder可填可不填（填了则会新建目录，不填则执行命令的文件夹必须为空，否则报错。）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建repository"><a href="#创建repository" class="headerlink" title="创建repository"></a>创建repository</h3><p>GitHub中创建repository，如果你希望你的站点能通过 <code>&lt;你的 GitHub 用户名&gt;.github.io</code>域名访问，你的 repository 应该直接命名为 <code>&lt;你的 GitHub 用户名&gt;.github.io</code>。</p>
-<h3 id="推送repository"><a href="#推送repository" class="headerlink" title="推送repository"></a>推送repository</h3><p>将Hexo项目中的<folder> 中的文件复制或剪贴到repository中。需要检查git忽略配置文件<code>.gitignore</code>文件中是否包含<code>public</code>。没有需要加上</p>
-<h3 id="注册并配置Travis-CI"><a href="#注册并配置Travis-CI" class="headerlink" title="注册并配置Travis CI"></a>注册并配置Travis CI</h3><ol>
-<li>使用GitHub账号注册Travis CI</li>
-<li>注册后，配置权限，只访问刚创建的repository，而不是所有的repository</li>
-<li>将GitHub新建的<a target="_blank" rel="noopener" href="https://github.com/settings/tokens">Personal Access Token</a>，只勾选<code>repo</code>权限</li>
-<li>在Travis CI的repository设置页面，设置环境变量Name：GH_TOKEN，value：Github刚生成的Token确保 DISPLAY VALUE IN BUILD LOG 保持 不被勾选 避免你的 Token 泄漏。点击 Add 保存。</li>
-<li>在你的 Hexo 站点文件夹中新建一个 .travis.yml 文件并推送到GitHub：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">sudo: <span class="literal">false</span></span><br><span class="line">language: node_js</span><br><span class="line">node_js:</span><br><span class="line">  - 10 <span class="comment"># use nodejs v10 LTS</span></span><br><span class="line">cache: npm</span><br><span class="line">branches:</span><br><span class="line">  only:</span><br><span class="line">    - master <span class="comment"># build master branch only</span></span><br><span class="line">script:</span><br><span class="line">  - hexo generate <span class="comment"># generate static files</span></span><br><span class="line">deploy:</span><br><span class="line">  provider: pages</span><br><span class="line">  skip-cleanup: <span class="literal">true</span></span><br><span class="line">  github-token: <span class="variable">$GH_TOKEN</span></span><br><span class="line">  keep-history: <span class="literal">true</span></span><br><span class="line">  on:</span><br><span class="line">    branch: master</span><br><span class="line">  local-dir: public</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/20/create-blog/" data-id="cknpriyhg00012gna9djfejl0" data-title="使用Hexo搭建个人博客" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2021/04/20/hello-world/" data-id="cknps1pcp0002ovna4eic9yi6" data-title="Hello World" class="article-share-link">分享</a>
       
       
       
@@ -199,7 +138,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/20/CSS%E5%B8%83%E5%B1%80%E4%B9%8B%E5%A4%9A%E5%88%97%E5%B8%83%E5%B1%80(1)/">CSS布局之多列布局（1）</a>
+      <a class="p-name article-title" href="/2021/04/20/CSS%E5%B8%83%E5%B1%80%E4%B9%8B%E5%A4%9A%E5%88%97%E5%B8%83%E5%B1%80(1)/">CSS布局之多列布局-Multicol基本概念（1）</a>
     </h1>
   
 
@@ -207,7 +146,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Multicol-的基本概念"><a href="#Multicol-的基本概念" class="headerlink" title="Multicol 的基本概念"></a>Multicol 的基本概念</h1><p>多列布局，通常简称为 multicol，是一种用于将内容布局到一组列框（类似于报纸中的列）的规范。</p>
+        <h1 id="Multicol的基本概念"><a href="#Multicol的基本概念" class="headerlink" title="Multicol的基本概念"></a>Multicol的基本概念</h1><p>多列布局，通常简称为 multicol，是一种用于将内容布局到一组列框（类似于报纸中的列）的规范。</p>
 <h2 id="关键概念和术语"><a href="#关键概念和术语" class="headerlink" title="关键概念和术语"></a>关键概念和术语</h2><p>Multicol 与我们在 CSS 中拥有的其他布局方法不同，它将内容（包括所有后代元素）分成几列。</p>
 <p>规范定义的属性是：</p>
 <ul>
@@ -259,7 +198,68 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/20/CSS%E5%B8%83%E5%B1%80%E4%B9%8B%E5%A4%9A%E5%88%97%E5%B8%83%E5%B1%80(1)/" data-id="cknpriyhc00002gna907abnma" data-title="CSS布局之多列布局（1）" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2021/04/20/CSS%E5%B8%83%E5%B1%80%E4%B9%8B%E5%A4%9A%E5%88%97%E5%B8%83%E5%B1%80(1)/" data-id="cknps1pci0000ovna9heq043w" data-title="CSS布局之多列布局-Multicol基本概念（1）" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-create-blog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/20/create-blog/" class="article-date">
+  <time class="dt-published" datetime="2021-04-20T02:54:39.000Z" itemprop="datePublished">2021-04-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/04/20/create-blog/">使用Hexo搭建个人博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>前提：在不想自己买云服务器搭建个人博客的情况下，可以使用Hexo配合GitHub Pages搭建个人博客。</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a> 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h3 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a>((Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本))</li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/">git</a></li>
+</ul>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>全局安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>局部安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo</span><br></pre></td></tr></table></figure>
+
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="创建Hexo项目"><a href="#创建Hexo项目" class="headerlink" title="创建Hexo项目"></a>创建Hexo项目</h3><p>在空文件夹中执行下列命令，folder可填可不填（填了则会新建目录，不填则执行命令的文件夹必须为空，否则报错。）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建repository"><a href="#创建repository" class="headerlink" title="创建repository"></a>创建repository</h3><p>GitHub中创建repository，如果你希望你的站点能通过 <code>&lt;你的 GitHub 用户名&gt;.github.io</code>域名访问，你的 repository 应该直接命名为 <code>&lt;你的 GitHub 用户名&gt;.github.io</code>。</p>
+<h3 id="推送repository"><a href="#推送repository" class="headerlink" title="推送repository"></a>推送repository</h3><p>将Hexo项目中的<folder> 中的文件复制或剪贴到repository中。需要检查git忽略配置文件<code>.gitignore</code>文件中是否包含<code>public</code>。没有需要加上</p>
+<h3 id="注册并配置Travis-CI"><a href="#注册并配置Travis-CI" class="headerlink" title="注册并配置Travis CI"></a>注册并配置Travis CI</h3><ol>
+<li>使用GitHub账号注册Travis CI</li>
+<li>注册后，配置权限，只访问刚创建的repository，而不是所有的repository</li>
+<li>将GitHub新建的<a target="_blank" rel="noopener" href="https://github.com/settings/tokens">Personal Access Token</a>，只勾选<code>repo</code>权限</li>
+<li>在Travis CI的repository设置页面，设置环境变量Name：GH_TOKEN，value：Github刚生成的Token确保 DISPLAY VALUE IN BUILD LOG 保持 不被勾选 避免你的 Token 泄漏。点击 Add 保存。</li>
+<li>在你的 Hexo 站点文件夹中新建一个 .travis.yml 文件并推送到GitHub：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">sudo: <span class="literal">false</span></span><br><span class="line">language: node_js</span><br><span class="line">node_js:</span><br><span class="line">  - 10 <span class="comment"># use nodejs v10 LTS</span></span><br><span class="line">cache: npm</span><br><span class="line">branches:</span><br><span class="line">  only:</span><br><span class="line">    - master <span class="comment"># build master branch only</span></span><br><span class="line">script:</span><br><span class="line">  - hexo generate <span class="comment"># generate static files</span></span><br><span class="line">deploy:</span><br><span class="line">  provider: pages</span><br><span class="line">  skip-cleanup: <span class="literal">true</span></span><br><span class="line">  github-token: <span class="variable">$GH_TOKEN</span></span><br><span class="line">  keep-history: <span class="literal">true</span></span><br><span class="line">  on:</span><br><span class="line">    branch: master</span><br><span class="line">  local-dir: public</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/04/20/create-blog/" data-id="cknps1pcn0001ovna7qzxbevu" data-title="使用Hexo搭建个人博客" class="article-share-link">分享</a>
       
       
       
@@ -306,11 +306,11 @@
           </li>
         
           <li>
-            <a href="/2021/04/20/create-blog/">使用Hexo搭建个人博客</a>
+            <a href="/2021/04/20/CSS%E5%B8%83%E5%B1%80%E4%B9%8B%E5%A4%9A%E5%88%97%E5%B8%83%E5%B1%80(1)/">CSS布局之多列布局-Multicol基本概念（1）</a>
           </li>
         
           <li>
-            <a href="/2021/04/20/CSS%E5%B8%83%E5%B1%80%E4%B9%8B%E5%A4%9A%E5%88%97%E5%B8%83%E5%B1%80(1)/">CSS布局之多列布局（1）</a>
+            <a href="/2021/04/20/create-blog/">使用Hexo搭建个人博客</a>
           </li>
         
       </ul>
